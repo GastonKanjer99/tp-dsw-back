@@ -1,6 +1,6 @@
 # tp-dsw
 Trabajo practico para la materia Desarrollo de Software de la UTN FRRo
-Integrantes del grupo:
+# Integrantes del grupo:
 - 45976 - Bustos, Martin Emanuel
 - 45810 - Kanjer, Gaston Alberto
 
