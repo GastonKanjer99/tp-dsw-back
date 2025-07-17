@@ -12,6 +12,8 @@ const sequelize = new Sequelize(
   }
 );
 
+const Race = require('./race')(sequelize);
+
 async function testConnection() {
   try {
     await sequelize.authenticate();
@@ -22,4 +24,4 @@ async function testConnection() {
 }
 testConnection();
 
-module.exports = { sequelize };
+module.exports = { sequelize, Race };
