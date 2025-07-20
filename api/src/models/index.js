@@ -16,6 +16,7 @@ const sequelize = new Sequelize(
 );
 
 const Race = require('./race')(sequelize);
+const Background = require('./background.js')(sequelize);
 
 async function testConnection() {
   try {
@@ -27,4 +28,4 @@ async function testConnection() {
 }
 testConnection();
 
-module.exports = { sequelize, Race };
+module.exports = { sequelize, Race, Background };
