@@ -1,17 +1,13 @@
 const express = require('express');
-const axios = require('axios');
-const router = express.Router();
+const router = require('express').Router();
+const backgroundController = require('../controllers/backgroundController');
 
 const API_BASE = process.env.DND_API_BASE;
 
-router.get('/', async (req, res) => {
-  try {
-    const response = await axios.get(`${API_BASE}/backgrounds`);
-    res.json(response.data);
-  } catch (error) {
-    console.error('Error al obtener trasfondos:', error.message);
-    res.status(500).json({ error: 'Error al obtener trasfondos' });
-  }
-});
+router.get('/', backgroundController.getAll);
+router.post('/', backgroundController.create);
+router.put('/:id', backgroundController.update);
+router.delete('/:id', backgroundController.remove);
+router.get('/api', backgroundController.getbackgroundsFromAPI); // API externa
 
 module.exports = router;
