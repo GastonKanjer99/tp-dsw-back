@@ -1,5 +1,8 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
+//const errorHandler = require('./middlewares/errorHandler');
+const logger = require('../utils/logger');
+
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -17,9 +20,9 @@ const Race = require('./race')(sequelize);
 async function testConnection() {
   try {
     await sequelize.authenticate();
-    console.log('Conexión con la base de datos exitosa');
+    logger.info('Conexión con la base de datos exitosa');
   } catch (error) {
-    console.error('No se pudo conectar a la base de datos:', error);
+    logger.error('No se pudo conectar a la base de datos:', error);
   }
 }
 testConnection();
